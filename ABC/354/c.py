@@ -2,10 +2,13 @@ import sys
 import io
 
 _INPUT = """\
-3
-2 4
-1 1
-3 2
+6
+32 101
+65 78
+2 29
+46 55
+103 130
+52 40
 
 """
 
@@ -15,14 +18,19 @@ N = int(input())
 cards = []
 for i in range(N):
     A, C = map(int, input().split())
-    cards.append([A, C])
+    cards.append([A, C, i+1])
 
 tmp = sorted(cards, key=lambda x:x[1])
 
-nowA = 0
+maxA = 0
+cnt = 0
 ans = []
 for i in range(N):
-    if nowA < tmp[i][0]:
-        ans.append()
+    if maxA < tmp[i][0]:
+        maxA = tmp[i][0]
+        cnt += 1
+        ans.append(tmp[i][2])
 
-print(cards)
+ans.sort()
+print(cnt)
+print(*ans)
