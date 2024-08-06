@@ -38,3 +38,4 @@ sholders = sum(A)
 
 print(head + sholders)
 
+
